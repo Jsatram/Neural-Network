@@ -1,9 +1,11 @@
 class NeuralNetwork{
   
+  //Our Neural Networks Brain
   int inputL;
   int hiddenL;
   int outputL;
   
+  //Learning rate this will effect how large the changes are when training
   float lr = .25;
   
   
@@ -12,7 +14,7 @@ class NeuralNetwork{
   Matrix weightsih; 
   Matrix weightsho;
   
-  
+  //initialize when created
   NeuralNetwork(int i, int h, int o){
     inputL = i;
     hiddenL = h;
@@ -30,6 +32,8 @@ class NeuralNetwork{
     biaso.randomize();
   }
   
+  
+  //Calculate output with the given inputs
   float[] feedForward(float[] input){
        
     Matrix inputs = new Matrix(input.length, 1);
@@ -79,6 +83,8 @@ class NeuralNetwork{
     return done;
   }
   
+  
+  //train the network with expected values for given inputs
   void train(float[] input,float[] answer){
      Matrix inputs = new Matrix(input.length, 1);
     for(int i = 0; i < input.length; i++){
